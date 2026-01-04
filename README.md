@@ -1,59 +1,335 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🚀 Crypto Exchange Platform
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A full-featured cryptocurrency trading platform built with **Laravel** and **Vue.js**. This platform allows users to trade cryptocurrencies with real-time order matching, commission handling, and live updates.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 🔗 Live Demo
+Coming Soon
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+---
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## 📦 Repository
+```bash
+git clone https://github.com/mwaleeddev/-Crypto-Exchange.git
+cd -Crypto-Exchange
+```
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+## 🛠️ Technology Stack
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Backend
+- Laravel 12 – PHP Framework
+- MySQL / PostgreSQL – Database
+- Pusher – Real-time broadcasting
+- Laravel Sanctum – API Authentication
 
-## Laravel Sponsors
+### Frontend
+- Vue.js 3 (Composition API)
+- Vite – Build Tool
+- Tailwind CSS 3 – Styling
+- Vue Router 4 – Client-side Routing
+- Axios – HTTP Client
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### Real-time Features
+- Laravel Echo – WebSocket integration
+- Pusher Channels – Real-time event broadcasting
 
-### Premium Partners
+---
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+## 📋 Prerequisites
 
-## Contributing
+Ensure you have the following installed:
+- PHP 8.2+
+- Composer
+- Node.js 18+ & npm
+- MySQL 8.0+ or PostgreSQL 14+
+- Git
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+---
 
-## Code of Conduct
+## 🚀 Quick Setup (5 Minutes)
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### Step 1: Clone & Install
+```bash
+composer install
+npm install
+cp .env.example .env
+php artisan key:generate
+```
 
-## Security Vulnerabilities
+### Step 2: Configure Environment
+Update your `.env` file:
+```env
+APP_NAME="Crypto Exchange"
+APP_ENV=local
+APP_DEBUG=true
+APP_URL=http://localhost:8000
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=crypto_exchange
+DB_USERNAME=root
+DB_PASSWORD=
 
-## License
+BROADCAST_DRIVER=pusher
+PUSHER_APP_ID=your_app_id
+PUSHER_APP_KEY=your_app_key
+PUSHER_APP_SECRET=your_app_secret
+PUSHER_APP_CLUSTER=mt1
+PUSHER_SCHEME=https
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### Step 3: Database Setup
+```bash
+php artisan migrate
+php artisan db:seed
+```
+
+(Optional)
+```bash
+php artisan db:seed --class=DatabaseSeeder
+```
+
+### Step 4: Build Assets
+```bash
+npm run build
+# OR
+npm run dev
+```
+
+### Step 5: Start Servers
+```bash
+php artisan serve
+npm run dev
+```
+
+Visit: **http://localhost:8000**
+
+---
+
+## 🔧 Detailed Configuration
+
+### Pusher Setup
+1. Create an account on pusher.com
+2. Create a Channels app
+3. Copy credentials into `.env`
+4. Verify `config/broadcasting.php`
+
+### Database Creation
+```sql
+CREATE DATABASE crypto_exchange;
+```
+
+### Mail Configuration (Optional)
+```env
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=587
+MAIL_USERNAME=your-email@gmail.com
+MAIL_PASSWORD=your-app-password
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS="noreply@crypto-exchange.com"
+MAIL_FROM_NAME="Crypto Exchange"
+```
+
+---
+
+## 📊 Default Test Accounts
+
+### Trader 1
+- Email: test@example.com
+- Password: password
+- Balance: $100,000
+- BTC: 1.5
+- ETH: 10
+
+### Trader 2
+- Email: trader2@example.com
+- Password: password
+- Balance: $50,000
+- BTC: 0.5
+
+---
+
+## 🎯 Features Implemented
+
+### Core Trading
+- Limit Buy/Sell Orders
+- Order Book (Real-time)
+- Matching Engine (Full matches)
+- 1.5% Commission System
+- Balance & Asset Management
+
+### Real-time
+- Live Order Updates
+- Balance Updates
+- Order Match Notifications
+- Private Channels
+
+### UI/UX
+- Dark Mode UI
+- Responsive Design
+- Portfolio Dashboard
+- Order History
+
+### Security
+- Authentication (Login/Register)
+- CSRF Protection
+- Sanctum API Security
+- Atomic Transactions
+- Input Validation
+
+---
+
+## 📁 Project Structure
+```
+crypto-exchange/
+├── app/
+│   ├── Http/Controllers/API/
+│   ├── Models/
+│   ├── Services/
+│   └── Events/
+├── database/
+│   ├── migrations/
+│   └── seeders/
+├── resources/
+│   ├── js/
+│   │   ├── components/
+│   │   ├── App.vue
+│   │   └── app.js
+│   └── views/
+├── routes/
+│   ├── api.php
+│   └── web.php
+└── config/
+```
+
+---
+
+## 🔄 API Endpoints
+
+**Auth Required (Sanctum)**
+
+| Method | Endpoint | Description |
+|------|---------|-------------|
+| GET | /api/profile | User balance & assets |
+| GET | /api/orders?symbol=BTC | Order book |
+| POST | /api/orders | Create order |
+| POST | /api/orders/{id}/cancel | Cancel order |
+| GET | /api/orders/user | User orders |
+
+---
+
+## 💼 Business Logic
+
+- Buy Orders: Lock USD, match sell orders
+- Sell Orders: Lock assets, match buy orders
+- Full order matching only
+- 1.5% commission on both sides
+
+### Example Trade
+```
+Buy: 0.01 BTC @ $95,000
+Volume: $950
+Commission: $14.25
+Total Paid: $964.25
+Seller Receives: 0.00985 BTC
+```
+
+---
+
+## 🚨 Troubleshooting
+
+### Clear Cache
+```bash
+php artisan optimize:clear
+```
+
+### Assets Not Loading
+```bash
+npm run build
+```
+
+### Pusher Issues
+- Verify credentials
+- Check cluster
+
+### Database Issues
+```bash
+php artisan migrate:fresh --seed
+```
+
+---
+
+## 🧪 Running Tests
+```bash
+php artisan test
+php artisan test --filter=OrderTest
+```
+
+---
+
+## 📈 Deployment
+
+### Production Optimization
+```bash
+php artisan config:cache
+php artisan route:cache
+php artisan view:cache
+npm run build
+```
+
+Set:
+```env
+APP_ENV=production
+APP_DEBUG=false
+```
+
+Deployment Options:
+- Shared Hosting
+- VPS (Nginx + PHP-FPM)
+- Laravel Forge / Vapor
+
+---
+
+## 🐛 Debugging
+```bash
+tail -f storage/logs/laravel.log
+```
+
+---
+
+## 🤝 Contributing
+1. Fork repository
+2. Create branch
+3. Commit changes
+4. Push & open PR
+
+---
+
+## 📄 License
+MIT License
+
+---
+
+## 👥 Author
+**Muhammad Waleed**
+
+---
+
+## 🙏 Acknowledgments
+- Laravel Team
+- Vue.js Team
+- Tailwind CSS
+- Pusher
+
+---
+
+## 📞 Support
+📧 mwaleeddev@gmail.com
+
+Create an issue on GitHub for help.
+
